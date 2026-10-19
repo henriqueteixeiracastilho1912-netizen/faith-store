@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAITH | Official Store</title>
+  <link rel="stylesheet" href="style.css?v=10.0">
+</head>
+<body>
+
+  <!-- BARRA DE ANÚNCIO TOP -->
+  <div class="top-bar">
+    <p>🚚 Envio Grátis para Portugal Continental em compras acima de 50€</p>
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header class="navbar">
+    <div class="header-left">
+      <button class="menu-toggle" id="mobile-menu" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#" class="logo">FAITH</a>
+    </div>
+
+    <!-- MENU PRINCIPAL -->
+    <nav class="nav-menu" id="nav-menu">
+      <div class="nav-header">
+        <span class="logo">FAITH</span>
+        <button class="close-menu" id="close-menu">&times;</button>
+      </div>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#produtos">Coleção</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#newsletter">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- ÍCONE DO CARRINHO -->
+    <div class="cart-icon" id="cart-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="cart-badge" id="cart-count">0</span>
+    </div>
+  </header>
+
+  <!-- OVERLAY ESCURO -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- GAVETA LATERAL DO CARRINHO -->
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>O TEU CARRINHO</h3>
+      <button class="close-cart" id="close-cart">&times;</button>
+    </div>
+    
+    <div class="cart-items" id="cart-items">
+      <p class="empty-cart-msg">O teu carrinho está vazio.</p>
+    </div>
+
+    <div class="cart-trust-badges">
+      <span>🛡️ Pagamento Seguro</span>
+      <span>🔄 Trocas em 30 Dias</span>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>TOTAL:</span>
+        <span id="cart-total-price">0,00 €</span>
+      </div>
+      <button class="btn-checkout" id="btn-checkout">FINALIZAR ENCOMENDA</button>
+    </div>
+  </aside>
+
+  <!-- MODAL DE VISUALIZAÇÃO RÁPIDA DO PRODUTO -->
+  <div class="product-modal" id="product-modal">
+    <div class="modal-content">
+      <button class="close-modal" id="close-modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modal-img" src="" alt="Produto FAITH">
+        </div>
+        <div class="modal-details">
+          <h2 id="modal-title">Nome do Produto</h2>
+          <p class="price" id="modal-price">0,00 €</p>
+          <p class="modal-description" id="modal-desc">Descrição detalhada do produto.</p>
+          <div class="modal-specs">
+            <p><strong>Composição:</strong> 100% Algodão Premium Heavyweight</p>
+            <p><strong>Corte:</strong> Modern / Streetwear Fit</p>
+          </div>
+          <div class="size-selector" id="modal-size-selector">
+            <button class="size-btn">S</button>
+            <button class="size-btn active">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+          </div>
+          <button class="btn-buy" id="modal-buy-btn">ADICIONAR AO CARRINHO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CHECKOUT / MORADA DE ENVIO E PAGAMENTO -->
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-content">
+      <button class="close-checkout" id="close-checkout">&times;</button>
+      <h2>DADOS DE ENVIO & PAGAMENTO</h2>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" id="shipping-name" placeholder="Ex: Gonçalo Silva" required>
+        </div>
+        <div class="form-group">
+          <label>Morada</label>
+          <input type="text" id="shipping-address" placeholder="Ex: Rua Principal, nº 123" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cidade</label>
+            <input type="text" id="shipping-city" placeholder="Ex: Lisboa" required>
+          </div>
+          <div class="form-group">
+            <label>Código Postal</label>
+            <input type="text" id="shipping-zip" placeholder="Ex: 1000-001" required>
+          </div>
+        </div>
+
+        <div class="form-group payment-section">
+          <label>Método de Pagamento</label>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment-method" value="MB WAY" checked>
+              <span>📱 MB WAY</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment-method" value="Multibanco">
+              <span>🏦 Multibanco</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment-method" value="Cartão">
+              <span>💳 Cartão de Crédito</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-confirm-order">CONFIRMAR ENCOMENDA</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="sub-title">DROP EXCLUSIVO // 2026</p>
+      <h2>FAITH URBAN ESSENTIALS</h2>
+      <a href="#produtos" class="btn-hero">EXPLORAR COLECÇÃO</a>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE PRODUTOS -->
+  <section id="produtos" class="products-section">
+    <div class="section-header">
+      <h2>CATÁLOGO COMPLETO</h2>
+      <p>Corte oversized, materiais premium & design minimalista</p>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="category-filters">
+      <button class="filter-btn active" data-category="all">TODOS</button>
+      <button class="filter-btn" data-category="tshirts">T-SHIRTS</button>
+      <button class="filter-btn" data-category="hoodies">HOODIES</button>
+      <button class="filter-btn" data-category="pants">CALÇAS</button>
+      <button class="filter-btn" data-category="jackets">CASACOS</button>
+      <button class="filter-btn" data-category="accessories">ACESSÓRIOS</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <!-- 50 Produtos -->
+      <div class="product-card" data-id="1" data-category="tshirts" data-desc="T-Shirt branca básica essencial com corte slim e algodão de alta qualidade.">
+        <div class="product-image"><span class="badge">NOVO</span><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80" alt="Produto 1"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 01 - White</h3><p class="price" data-price="29.90">29,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="2" data-category="tshirts" data-desc="T-Shirt preta oversized em algodão denso.">
+        <div class="product-image"><span class="badge hot">HOT</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80" alt="Produto 2"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 02 - Black</h3><p class="price" data-price="34.90">34,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="3" data-category="tshirts" data-desc="T-Shirt cinzenta com lavagem vintage.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80" alt="Produto 3"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 03 - Vintage Grey</h3><p class="price" data-price="32.90">32,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="4" data-category="tshirts" data-desc="T-Shirt bege tom terra minimalista.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80" alt="Produto 4"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 04 - Beige</h3><p class="price" data-price="29.90">29,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="5" data-category="tshirts" data-desc="T-Shirt verde tropa com bolso frontal.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80" alt="Produto 5"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 05 - Olive</h3><p class="price" data-price="31.90">31,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="6" data-category="tshirts" data-desc="T-Shirt azul marinho com logo discreto.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80" alt="Produto 6"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 06 - Navy</h3><p class="price" data-price="29.90">29,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="7" data-category="tshirts" data-desc="T-Shirt vermelha escura tom bordô.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80" alt="Produto 7"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 07 - Maroon</h3><p class="price" data-price="32.90">32,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="8" data-category="tshirts" data-desc="T-Shirt oversized com gola alta técnica.">
+        <div class="product-image"><span class="badge">LIMITADO</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80" alt="Produto 8"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 08 - Mock Neck</h3><p class="price" data-price="39.90">39,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="9" data-category="tshirts" data-desc="T-Shirt castanha tom chocolate.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80" alt="Produto 9"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 09 - Brown</h3><p class="price" data-price="31.90">31,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="10" data-category="tshirts" data-desc="T-Shirt branca com bordado centralizado.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80" alt="Produto 10"></div>
+        <div class="product-info"><h3>T-Shirt FAITH 10 - Embroidered</h3><p class="price" data-price="34.90">34,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+
+      <div class="product-card" data-id="11" data-category="hoodies" data-desc="Hoodie preto pesado com capuz amplo.">
+        <div class="product-image"><span class="badge hot">HOT</span><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Produto 11"></div>
+        <div class="product-info"><h3>Hoodie FAITH 11 - Heavy Black</h3><p class="price" data-price="64.90">64,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="12" data-category="hoodies" data-desc="Sweatshirt cinzenta com interior cardado.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800&auto=format&fit=crop&q=80" alt="Produto 12"></div>
+        <div class="product-info"><h3>Hoodie FAITH 12 - Grey Crewneck</h3><p class="price" data-price="59.90">59,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="13" data-category="hoodies" data-desc="Hoodie bege tom areia oversized.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Produto 13"></div>
+        <div class="product-info"><h3>Hoodie FAITH 13 - Sand</h3><p class="price" data-price="64.90">64,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="14" data-category="hoodies" data-desc="Sweatshirt sem capuz preta minimalista.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800&auto=format&fit=crop&q=80" alt="Produto 14"></div>
+        <div class="product-info"><h3>Hoodie FAITH 14 - Black Crew</h3><p class="price" data-price="54.90">54,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="15" data-category="hoodies" data-desc="Hoodie verde floresta com bolso canguru.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Produto 15"></div>
+        <div class="product-info"><h3>Hoodie FAITH 15 - Forest Green</h3><p class="price" data-price="64.90">64,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="16" data-category="hoodies" data-desc="Hoodie azul escuro com fecho e capuz.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800&auto=format&fit=crop&q=80" alt="Produto 16"></div>
+        <div class="product-info"><h3>Hoodie FAITH 16 - Zip Navy</h3><p class="price" data-price="69.90">69,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="17" data-category="hoodies" data-desc="Hoodie castanho escuro oversized.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Produto 17"></div>
+        <div class="product-info"><h3>Hoodie FAITH 17 - Espresso</h3><p class="price" data-price="64.90">64,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="18" data-category="hoodies" data-desc="Hoodie com fecho parcial meia-zipper.">
+        <div class="product-image"><span class="badge">NOVO</span><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800&auto=format&fit=crop&q=80" alt="Produto 18"></div>
+        <div class="product-info"><h3>Hoodie FAITH 18 - Half Zip</h3><p class="price" data-price="69.90">69,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="19" data-category="hoodies" data-desc="Sweatshirt branca minimalista sem capuz.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" alt="Produto 19"></div>
+        <div class="product-info"><h3>Hoodie FAITH 19 - Off-White Crew</h3><p class="price" data-price="59.90">59,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="20" data-category="hoodies" data-desc="Hoodie edição especial lavagem vintage.">
+        <div class="product-image"><span class="badge">LIMITADO</span><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800&auto=format&fit=crop&q=80" alt="Produto 20"></div>
+        <div class="product-info"><h3>Hoodie FAITH 20 - Vintage Acid</h3><p class="price" data-price="74.90">74,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+
+      <div class="product-card" data-id="21" data-category="pants" data-desc="Calças cargo pretas com bolsos utilitários.">
+        <div class="product-image"><span class="badge hot">HOT</span><img src="https://images.unsplash.com/photo-1542272604-780c36856842?w=800&auto=format&fit=crop&q=80" alt="Produto 21"></div>
+        <div class="product-info"><h3>Calças FAITH 21 - Black Cargo</h3><p class="price" data-price="54.90">54,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="22" data-category="pants" data-desc="Calças de fato de treino pretas ajustáveis.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80" alt="Produto 22"></div>
+        <div class="product-info"><h3>Calças FAITH 22 - Essential Joggers</h3><p class="price" data-price="49.90">49,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="23" data-category="pants" data-desc="Calças cinzentas de corte direito e relaxado.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-780c36856842?w=800&auto=format&fit=crop&q=80" alt="Produto 23"></div>
+        <div class="product-info"><h3>Calças FAITH 23 - Grey Relaxed</h3><p class="price" data-price="52.90">52,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="24" data-category="pants" data-desc="Calças cargo em tom verde tropa.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80" alt="Produto 24"></div>
+        <div class="product-info"><h3>Calças FAITH 24 - Olive Cargo</h3><p class="price" data-price="54.90">54,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="25" data-category="pants" data-desc="Calças de ganga preta com corte direito.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-780c36856842?w=800&auto=format&fit=crop&q=80" alt="Produto 25"></div>
+        <div class="product-info"><h3>Calças FAITH 25 - Black Denim</h3><p class="price" data-price="59.90">59,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="26" data-category="pants" data-desc="Calças bege tom areia estilo chino moderno.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80" alt="Produto 26"></div>
+        <div class="product-info"><h3>Calças FAITH 26 - Beige Chino</h3><p class="price" data-price="52.90">52,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="27" data-category="pants" data-desc="Calças jogger em algodão pesado cinzento.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-780c36856842?w=800&auto=format&fit=crop&q=80" alt="Produto 27"></div>
+        <div class="product-info"><h3>Calças FAITH 27 - Heavy Jogger</h3><p class="price" data-price="49.90">49,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="28" data-category="pants" data-desc="Calças de ganga lavagem azul vintage.">
+        <div class="product-image"><span class="badge">NOVO</span><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80" alt="Produto 28"></div>
+        <div class="product-info"><h3>Calças FAITH 28 - Vintage Blue Denim</h3><p class="price" data-price="59.90">59,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="29" data-category="pants" data-desc="Calças cargo pretas estilo tático.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-780c36856842?w=800&auto=format&fit=crop&q=80" alt="Produto 29"></div>
+        <div class="product-info"><h3>Calças FAITH 29 - Tech Cargo</h3><p class="price" data-price="64.90">64,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="30" data-category="pants" data-desc="Calças curtas calções estilo sweatpants.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80" alt="Produto 30"></div>
+        <div class="product-info"><h3>Calças FAITH 30 - Sweat Shorts</h3><p class="price" data-price="39.90">39,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+
+      <div class="product-card" data-id="31" data-category="jackets" data-desc="Casaco tático impermeável com fechos selados.">
+        <div class="product-image"><span class="badge">LIMITADO</span><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 31"></div>
+        <div class="product-info"><h3>Casaco FAITH 31 - Tech Jacket</h3><p class="price" data-price="89.90">89,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="32" data-category="jackets" data-desc="Casaco puffer acolchoado para o frio.">
+        <div class="product-image"><span class="badge hot">HOT</span><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 32"></div>
+        <div class="product-info"><h3>Casaco FAITH 32 - Black Puffer</h3><p class="price" data-price="99.90">99,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="33" data-category="jackets" data-desc="Casaco estilo bomber clássico em preto.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 33"></div>
+        <div class="product-info"><h3>Casaco FAITH 33 - Bomber Jacket</h3><p class="price" data-price="79.90">79,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="34" data-category="jackets" data-desc="Casaco em ganga preta com gola de ovelha.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 34"></div>
+        <div class="product-info"><h3>Casaco FAITH 34 - Denim Shearling</h3><p class="price" data-price="84.90">84,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="35" data-category="jackets" data-desc="Casaco corta-vento leve e dobrável.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 35"></div>
+        <div class="product-info"><h3>Casaco FAITH 35 - Windbreaker</h3><p class="price" data-price="69.90">69,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="36" data-category="jackets" data-desc="Sobretudo em lã estruturada tom preto.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 36"></div>
+        <div class="product-info"><h3>Casaco FAITH 36 - Minimal Overcoat</h3><p class="price" data-price="119.90">119,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="37" data-category="jackets" data-desc="Colete tático acolchoado sem mangas.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 37"></div>
+        <div class="product-info"><h3>Casaco FAITH 37 - Puffer Vest</h3><p class="price" data-price="59.90">59,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="38" data-category="jackets" data-desc="Casaco estilo varsity em contraste preto e branco.">
+        <div class="product-image"><span class="badge">NOVO</span><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 38"></div>
+        <div class="product-info"><h3>Casaco FAITH 38 - Varsity Jacket</h3><p class="price" data-price="89.90">89,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="39" data-category="jackets" data-desc="Casaco impermeável longo estilo parka.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 39"></div>
+        <div class="product-info"><h3>Casaco FAITH 39 - Urban Parka</h3><p class="price" data-price="109.90">109,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="40" data-category="jackets" data-desc="Casaco de pele sintética preta biker.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80" alt="Produto 40"></div>
+        <div class="product-info"><h3>Casaco FAITH 40 - Biker Leather</h3><p class="price" data-price="129.90">129,90 €</p><div class="size-selector"><button class="size-btn">S</button><button class="size-btn active">M</button><button class="size-btn">L</button><button class="size-btn">XL</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+
+      <div class="product-card" data-id="41" data-category="accessories" data-desc="Boné aba curva ajustável em preto.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 41"></div>
+        <div class="product-info"><h3>Acessório FAITH 41 - Black Cap</h3><p class="price" data-price="24.90">24,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="42" data-category="accessories" data-desc="Mala shoulder bag tiracolo compacta.">
+        <div class="product-image"><span class="badge hot">HOT</span><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80" alt="Produto 42"></div>
+        <div class="product-info"><h3>Acessório FAITH 42 - Shoulder Bag</h3><p class="price" data-price="29.90">29,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="43" data-category="accessories" data-desc="Gorro em malha preta quente.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 43"></div>
+        <div class="product-info"><h3>Acessório FAITH 43 - Black Beanie</h3><p class="price" data-price="19.90">19,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="44" data-category="accessories" data-desc="Mochila urbana impermeável para portátil.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80" alt="Produto 44"></div>
+        <div class="product-info"><h3>Acessório FAITH 44 - Urban Backpack</h3><p class="price" data-price="49.90">49,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="45" data-category="accessories" data-desc="Cinto tático fivela metálica rápida.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 45"></div>
+        <div class="product-info"><h3>Acessório FAITH 45 - Tactical Belt</h3><p class="price" data-price="22.90">22,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="46" data-category="accessories" data-desc="Meias cano alto kit de 3 pares.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 46"></div>
+        <div class="product-info"><h3>Acessório FAITH 46 - Socks Pack (3x)</h3><p class="price" data-price="14.90">14,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="47" data-category="accessories" data-desc="Óculos de sol pretos armação retangular.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 47"></div>
+        <div class="product-info"><h3>Acessório FAITH 47 - Sunglasses</h3><p class="price" data-price="34.90">34,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="48" data-category="accessories" data-desc="Mala de cintura fanny pack.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80" alt="Produto 48"></div>
+        <div class="product-info"><h3>Acessório FAITH 48 - Waist Bag</h3><p class="price" data-price="27.90">27,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="49" data-category="accessories" data-desc="Chapéu estilo bucket hat em algodão.">
+        <div class="product-image"><span class="badge">NOVO</span><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 49"></div>
+        <div class="product-info"><h3>Acessório FAITH 49 - Bucket Hat</h3><p class="price" data-price="26.90">26,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+      <div class="product-card" data-id="50" data-category="accessories" data-desc="Porta-chaves metálico com fita FAITH.">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&auto=format&fit=crop&q=80" alt="Produto 50"></div>
+        <div class="product-info"><h3>Acessório FAITH 50 - Lanyard Keychain</h3><p class="price" data-price="12.90">12,90 €</p><div class="size-selector"><button class="size-btn active">UNI</button></div><button class="btn-buy">ADICIONAR AO CARRINHO</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A MARCA -->
+  <section id="sobre" class="about-section">
+    <div class="about-container">
+      <h2>A NOSSA HISTÓRIA</h2>
+      <p>A FAITH nasceu da paixão pelo minimalismo, conforto e autenticidade. Desenvolvemos peças pensadas para o dia-a-dia de quem procura um estilo moderno sem abdicar da qualidade superior.</p>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter" class="newsletter-section">
+    <h2>JUNTA-TE À FAITH COMMUNITY</h2>
+    <p>Subscreve para receber acesso antecipado a novos drops e ofertas exclusivas.</p>
+    <form id="newsletter-form" class="newsletter-form">
+      <input type="email" placeholder="O teu melhor e-mail..." required>
+      <button type="submit">SUBSCREVER</button>
+    </form>
+  </section>
+
+  <!-- CONTENTOR DE NOTIFICAÇÕES TOAST -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2026 FAITH CLOTHING. TODOS OS DIREITOS RESERVADOS. FEITO EM PORTUGAL.</p>
+  </footer>
+
+  <script src="script.js?v=10.0"></script>
+</body>
+</html>
